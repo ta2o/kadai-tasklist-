@@ -1,5 +1,9 @@
-class AddUserIdToTasks < ActiveRecord::Migration[5.0]
+class CreateTasks < ActiveRecord::Migration[5.0]
   def change
-    add_reference :tasks, :user, foreign_key: true
+    create_table :tasks do |t|
+      t.string :content
+
+      t.timestamps
+    end
   end
 end
