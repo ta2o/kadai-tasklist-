@@ -1,23 +1,32 @@
 <% if logged_in? %>
-  <p>ログイン完了ユーザ: <%= current_user.name %></p>
-<% else %>
-  <div class="row">
-    <aside class="col-md-4">
-      <%= form_for(@task) do |f| %>
-        <div class="form-group">
-          <%= f.text_area :content, class: 'form-control', rows: 5 %>
-        </div>
-        <%= f.submit 'Post', class: 'btn btn-primary btn-block' %>
+   <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>タイトル</th>
+        <th>メッセージ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @tasks.each do |task| %>
+        <tr>
+          <td><%= link_to task.id, task %></td>
+          <td><%= task.title %></td>
+          <td><%= task.content %></td>
+        </tr>
       <% end %>
-    </aside>
-    <div class="col-xs-8">
-      <%= render 'tasks/tasks', tasks: @tasks %>
+    </tbody>
+  </table>
+  <div>
+    <%= paginate @tasks %>
+  </div>
     </div>
   </div>
-   <div class="center jumbotron">
+<% else %>
+  <div class="center jumbotron">
     <div class="text-center">
-      <h1>Welcome to the Tasks</h1>
+      <h1>Welcome to the Microposts</h1>
       <%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
     </div>
-   </div>
+  </div>
 <% end %>
