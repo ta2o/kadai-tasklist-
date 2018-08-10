@@ -20,8 +20,8 @@
   <div>
     <%= paginate @tasks %>
   </div>
-    </div>
-  </div>
+
+<%= link_to 'タスクの投稿', new_task_path, class: "btn btn-primary" %>
 <% else %>
   <div class="center jumbotron">
     <div class="text-center">
@@ -30,3 +30,4 @@
     </div>
   </div>
 <% end %>
+
