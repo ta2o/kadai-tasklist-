@@ -69,12 +69,7 @@ private
   end  
      
   def correct_user
-     @task = current_user.tasks.find_by(id: params[:id])
-     if @task = current_user
-     true
-     else 
-      redirect_to root_url
-     end
+     @task = Task.find(params[:id])
+     redirect_to root_url if @task.user_id != current_user.id
   end
 end
-
