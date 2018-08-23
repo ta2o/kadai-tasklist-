@@ -51,6 +51,6 @@ production:
   adapter: postgresql
   encoding: unicode
   pool: 5
-  database: tasklist_production
-  username: tasklist
+  database: kadai-tasklist-_production
+  username: kadai-tasklist-
   password: <%= ENV['TASKLIST_DATABASE_PASSWORD'] %>
